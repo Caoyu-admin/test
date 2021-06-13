@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="my.webapp.dao.UserDao">
+
+    <insert id="insertUser">
+        insert into users(userName,passWord,sex,email) values(#{userName},#{passWord},#{sex},#{email})
+    </insert>
+    <select id="queryUser" resultType="my.webapp.entity.User">
+        select userId,userName,passWord,sex,email from users where userName=#{userName} and passWord=#{passWord}
+    </select>
+    <insert id="addMoney">
+        insert into userInfo(allMoney,uid) values(#{allMoney},#{uid})
+    </insert>
+    <update id="updateUser">
+        update users set userName=#{userName},passWord=#{passWord},sex=#{sex},email=#{email} where userId=#{id}
+    </update>
+    <insert id="insertMoneyInfo">
+        insert into moneyInfo(breakFirst,lunch,dinner,shopping,entertainment,uid) values (#{breakFirst},#{lunch},#{dinner},#{shopping},#{entertainment},#{uid})
+    </insert>
+</mapper>
